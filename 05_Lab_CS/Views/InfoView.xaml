@@ -1,0 +1,34 @@
+﻿<Window x:Class="_05_Lab_CS.Views.InfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_05_Lab_CS.Views"
+        mc:Ignorable="d"
+         Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Modules" HorizontalAlignment="Center"></Label>
+        <DataGrid Grid.Column="0" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Modules, Mode=OneWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"  IsReadOnly="True" Binding="{Binding ModuleName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="File Path"  IsReadOnly="True" Binding="{Binding FileName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="1" Grid.Row="0" Content="Threads" HorizontalAlignment="Center"></Label>
+        <DataGrid Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Threads, Mode=OneWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"  IsReadOnly="True" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="State"  IsReadOnly="True" Binding="{Binding ThreadState}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Start Time" IsReadOnly="True" Binding="{Binding StartTime}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
